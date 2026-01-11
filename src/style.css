@@ -1,0 +1,76 @@
+/* Reset default browser margins */
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #fccfcf; /* Light Pink Background */
+  color: #4a4a4a;
+}
+
+body {
+  margin: 0;
+  display: flex; /* Flexbox centers things easily */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#app {
+  text-align: center;
+}
+
+.card {
+  background: white;
+  padding: 3rem;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(255, 107, 107, 0.2); /* Soft red shadow */
+  max-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #ff4757;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px; /* Space between buttons */
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: #ff4757;
+  padding: 12px 24px;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 50px; /* Fully rounded pills */
+  cursor: pointer;
+  transition: transform 0.2s; /* Smooth animation on hover */
+}
+
+#yes-btn {
+  --btn-scale: 1;
+  transform: scale(var(--btn-scale));
+  transition: tranform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 20px 40px;
+}
+
+#yes-btn:hover {
+  transform: scale(calc(var(--btn-scale) * 1.1)); /* Grows slightly */
+  box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+}
+
+#no-btn {
+  color: #46494e;
+  transition: all 0.5s ease;
+  font-size: 1.3rem;
+  padding: 10px 20px;
+}

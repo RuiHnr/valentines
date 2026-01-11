@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Valentines</title>
+        <link rel="stylesheet" href="./lock.css">
+        <script src="./crypto-js.min.js"></script>
+    </head>
+    <body>
+        <div class="card">
+            <h1>Enter the password</h1>
+            <p>Let's make sure that you are allowed to see this...</p>
+            <input type="password" id="passwordInput" placeholder="Password">
+            <button id="unlock-btn">Unlock</button>
+            <p id="error" class="hidden">Incorrect password, try again!</p>
+
+            <div class="hint-container">
+                <span class="hint-toggle hidden">Need a hint?</span>
+                <p class="hint-text hidden"></p>
+            </div>
+        </div>
+        <script>
+            // The build script will replace this string
+            // attach it to window so locks.js can find it easily
+            window.ENCRYPTED_BLOB = "__ENCRYPTED_PAYLOAD__";
+        </script>
+        <script src="./lock.js"></script>
+    </body>
+</html>
