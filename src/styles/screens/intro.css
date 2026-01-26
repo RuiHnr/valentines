@@ -1,0 +1,30 @@
+#yes-btn {
+  --btn-scale: 1;
+  transform: scale(var(--btn-scale));
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  color: white;
+  font-weight: bold;
+  font-size: 2rem;
+  padding: 20px 40px;
+}
+
+#yes-btn:hover {
+  transform: scale(calc(var(--btn-scale) * 1.1)); /* Grows slightly */
+  box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+}
+
+#no-btn {
+  color: #46494e;
+  transition: all 0.5s ease;
+  font-size: 1.3rem;
+  padding: 10px 20px;
+}
+
+.intro-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
