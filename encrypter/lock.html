@@ -11,7 +11,12 @@
         <div class="card">
             <h1>Enter the password</h1>
             <p>Let's make sure that you are allowed to see this...</p>
-            <input type="password" id="passwordInput" placeholder="Password">
+            <div class="input-wrapper">
+                <input type="password" id="passwordInput" placeholder="Password">
+                <span id="toggle-password" class="eye-icon">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                </span>
+            </div>
             <button id="unlock-btn">Unlock</button>
             <p id="error" class="hidden">Incorrect password, try again!</p>
 
