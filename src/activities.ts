@@ -20,7 +20,9 @@ export const ACTIVITIES: Record<ActivityCategory, CategoryData> = {
             { id: 'chinese', text: 'Chinese' },
             { id: 'korean', text: 'Korean' },
             { id: 'home', text: 'Ich koche für dich' },
-            { id: 'pick-food', text: 'Du kannst entscheiden' }
+            { id: 'surprise-food', text: 'Du kannst entscheiden' },
+
+            { id: 'custom-food', text: 'Custom food' }
         ]
     },
     movie: {
@@ -29,7 +31,9 @@ export const ACTIVITIES: Record<ActivityCategory, CategoryData> = {
             { id: 'alice', text: 'Alice in Borderland' },
             { id: 'qyfddf', text: 'Meet Yourself' },
             { id: 'maomao', text: 'Maomao' },
-            { id: 'pick-movie', text: 'Du kannst entscheiden' }
+            { id: 'surprise-movie', text: 'Du kannst entscheiden' },
+
+            { id: 'custom-movie', text: 'Custom movie' }
         ]
     },
     outdoor: {
@@ -38,7 +42,9 @@ export const ACTIVITIES: Record<ActivityCategory, CategoryData> = {
             { id: 'shopping', text: 'Shoppen gehen' },
             { id: 'iceskating', text: 'Eislaufen gehen' },
             { id: 'walk', text: 'Spazieren gehen' },
-            { id: 'pick-outdoor', text: 'Entscheide du😭' }
+            { id: 'surprise-outdoor', text: 'Entscheide du😭' },
+
+            { id: 'custom-outdoor', text: 'Custom outdoor' }
         ]
     }
 };

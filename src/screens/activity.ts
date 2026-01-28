@@ -1,3 +1,4 @@
+import '../styles/screens/activity.css';
 import { ACTIVITIES, type ActivityCategory } from "../activities";
 import { showScreen } from "../utils/navigation";
 
@@ -13,22 +14,25 @@ export function loadActivity(category: ActivityCategory) {
     const titleEl = document.getElementById('activity-title');
     const containerEl = document.getElementById('activity-options-container');
 
-    // set screen title
     if (!titleEl || !containerEl) return;
 
-    // empty container
+    // set screen title
     titleEl.textContent = data.title;
+
+    // empty container
+    containerEl.innerHTML = '';
 
     // insert new buttons
     data.options.forEach(option => {
-        const btn = document.createElement('button');
-        btn.textContent = option.text;
-        btn.className = 'btn-primary';
-        btn.style.width = '100%';
+        const card = document.createElement('div');
+        card.textContent = option.text;
+        card.className = 'activity-card';
 
-        btn.addEventListener('click', () => {
+        card.addEventListener('click', () => {
             showScreen('final-screen');
         });
+
+        containerEl.appendChild(card);
     });
     showScreen('activity-screen');
 }
