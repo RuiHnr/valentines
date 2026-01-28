@@ -25,5 +25,5 @@ export function initIntro() {
     noButton.addEventListener('mouseover', () => moveButtonRandomely());
     noButton.addEventListener('click', () => moveButtonRandomely());
 
-    yesButton.addEventListener('click', () => showScreen('yippie-screen'));
+    yesButton.addEventListener('click', () => showScreen('date-choice-screen'));
 }

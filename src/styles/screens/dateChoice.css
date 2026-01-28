@@ -1,0 +1,34 @@
+.choice-wrapper {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.date-card {
+  cursor: pointer;
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.date-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(255, 71, 87, 0.3);
+  border: 2px solid var(--primary-color);
+}
+
+.date-ccard:active {
+  transform: scale(0.95);
+}
+
+.date-choice-img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px;
+  border: 10px solid var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}

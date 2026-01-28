@@ -32,3 +32,10 @@ button {
   transform: scale(1.05);
   background-color: var(--secondary-color);
 }
+
+.buttons-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}

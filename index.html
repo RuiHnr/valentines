@@ -20,8 +20,32 @@
       </div>
     </div>
 
-    <div id="yippie-screen" class="screen hidden">
-      <p>Yippieeee!!!!</p>
+    <div id="date-choice-screen" class="screen hidden">
+      <h1>Choose a date</h1>
+      <div class="choice-wrapper">
+        <div class="card date-card" data-category="dinner">
+          <img src="resources/chinese_restaurant.jpg" class="date-choice-img">
+          <h2>Dinner Date</h2>
+        </div>
+        <div class="card date-card" data-category="movie">
+          <img src="resources/watching_qyfddf2.jpg" class="date-choice-img">
+          <h2>Movie Night</h2>
+        </div>
+        <div class="card date-card" data-category="outdoor">
+          <img src="resources/spazieren.jpg" class="date-choice-img">
+          <h2>Outdoor Date</h2>
+        </div>
+      </div>
+    </div>
+
+    <div id="activity-screen", class="screen hidden">
+      <h1 id="activity-title">Loading...</h1>
+      <div id="activity-options-container" class="buttons-vertical"></div>
+      <button id="back-to-date-btn">Zurück</button>
+    </div>
+
+    <div id="final-screen", class="screen hidden">
+
     </div>
 
     <script type="module" src="/src/main.ts"></script>
