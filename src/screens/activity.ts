@@ -28,6 +28,14 @@ export function loadActivity(category: ActivityCategory) {
         card.textContent = option.text;
         card.className = 'activity-card';
 
+        if (option.image) {
+            const img = document.createElement('img');
+            img.className = 'activity-icon';
+            img.src = option.image;
+            img.className = 'activity-icon';
+            card.appendChild(img);
+        }
+
         card.addEventListener('click', () => {
             showScreen('final-screen');
         });

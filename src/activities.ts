@@ -17,34 +17,35 @@ export const ACTIVITIES: Record<ActivityCategory, CategoryData> = {
     dinner: {
         title: "What do you wanna eat?",
         options : [
-            { id: 'chinese', text: 'Chinese' },
-            { id: 'korean', text: 'Korean' },
-            { id: 'home', text: 'Ich koche für dich' },
-            { id: 'surprise-food', text: 'Du kannst entscheiden' },
+            { id: 'chinese', text: '中餐', image: '../resources/xiaolongbao.jpg' },
+            { id: 'korean', text: '한국', image: '../resources/bibimbap.jpg' },
+            { id: 'home', text: 'Private Chef', image: '../resources/chef.jpg' },
+            { id: 'indonesian', text: 'Indonesisch', image: '../resources/nasi-goreng.jpg' },
 
-            { id: 'custom-food', text: 'Custom food' }
+            { id: 'surprise-food', text: 'Surprise me' }
         ]
     },
     movie: {
         title: "Was willst du schauen?",
         options: [
-            { id: 'alice', text: 'Alice in Borderland' },
-            { id: 'qyfddf', text: 'Meet Yourself' },
-            { id: 'maomao', text: 'Maomao' },
-            { id: 'surprise-movie', text: 'Du kannst entscheiden' },
+            { id: 'alice', text: 'Alice in Borderland', image: '../resources/arisu.jpg' },
+            { id: 'qyfddf', text: '去有风的地方', image: '../resources/hongdou.jpg' },
+            { id: 'maomao', text: 'Maomao', image: '../resources/maomao.jpg' },
+            { id: 'horror-movie', text: 'Horror Film', image: '../resources/clown.jpg' },
 
-            { id: 'custom-movie', text: 'Custom movie' }
+            { id: 'surprise-movie', text: 'Surprise Movie' }
+
         ]
     },
     outdoor: {
         title: "Was willst du machen?",
         options: [
-            { id: 'shopping', text: 'Shoppen gehen' },
-            { id: 'iceskating', text: 'Eislaufen gehen' },
-            { id: 'walk', text: 'Spazieren gehen' },
-            { id: 'surprise-outdoor', text: 'Entscheide du😭' },
+            { id: 'convenience-store', text: 'Convenience Store Date', image: '../resources/conbini.jpg' },
+            { id: 'iceskating', text: 'Eislaufen Date', image: '../resources/iceskaters.jpg' },
+            { id: 'shopping', text: 'Shopping Date', image: '../resources/uniqlo.jpg' },
+            { id: 'museum', text: 'Museum Date', image: '../resources/museum.jpg' },
 
-            { id: 'custom-outdoor', text: 'Custom outdoor' }
+            { id: 'surprise-outdoor', text: 'Surprise Me' }
         ]
     }
 };

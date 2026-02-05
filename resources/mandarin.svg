@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <radialGradient id="mandarinGrad" cx="40%" cy="40%" r="60%" fx="30%" fy="30%">
+      <stop offset="0%" style="stop-color:#FFC857;stop-opacity:1" /> <stop offset="70%" style="stop-color:#FF8C00;stop-opacity:1" /> <stop offset="100%" style="stop-color:#D35400;stop-opacity:1" /> </radialGradient>
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8BC34A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4E9A31;stop-opacity:1" />
+    </linearGradient>
+    <solidColor id="stemColor" solid-color="#5D4037" />
+  </defs>
+
+  <path d="M50,18 C75,18 92,35 92,55 C92,78 75,92 50,92 C25,92 8,78 8,55 C8,35 25,18 50,18 Z"
+        fill="url(#mandarinGrad)" stroke="#1A1A1A" stroke-width="3" stroke-linejoin="round"/>
+
+  <g fill="#A04000" opacity="0.4">
+    <circle cx="30" cy="45" r="1.5" />
+    <circle cx="65" cy="50" r="1.5" />
+    <circle cx="45" cy="70" r="1.5" />
+    <circle cx="75" cy="65" r="1.5" />
+    <circle cx="25" cy="60" r="1.2" />
+    <circle cx="55" cy="80" r="1.2" />
+    <circle cx="80" cy="40" r="1.2" />
+  </g>
+
+  <path d="M48,18 Q48,10 53,8 Q55,10 52,18 Z"
+        fill="url(#stemColor)" stroke="#1A1A1A" stroke-width="2.5" stroke-linejoin="round"/>
+
+  <path d="M53,10 Q65,0 75,8 Q70,20 55,15 Z"
+        fill="url(#leafGrad)" stroke="#1A1A1A" stroke-width="2.5" stroke-linejoin="round"/>
+  
+  <path d="M56,11 Q62,5 68,8" stroke="#C5E1A5" stroke-width="1.5" fill="none" opacity="0.7"/>
+
+</svg>
