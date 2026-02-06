@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="./resources/mandarin.svg" />
     <meta name="valentines" content="width=device-width, initial-scale=1.0" />
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
     <title>valentines</title>
   </head>
   <body>
@@ -46,7 +47,53 @@
     </div>
 
     <div id="final-screen", class="screen hidden">
+      <div class="card final-card-fixed">
+        <div id="loading-container">
+          <h2 id="loading-text">Das Date wird vorbereitet...</h2>
 
+          <div class="progress-wrapper">
+            <div id="progress-bar" class="progress-fill">
+              <img src="./resources/hk-heart.svg" class="progress-heart" alt="♥️">
+            </div>
+          </div>
+
+          <p id="loading-subtext">Loading...</p>
+        </div>
+
+        <div id="success-container" class="hidden">
+          <h1>Fertig!</h1>
+          <p id="final-details">Alles ist fertig!</p>
+
+          <div id="scroll-arrow" class="hidden">
+            <p id="open-text">Eine Letzte Sache</p>
+            <svg viewBox="0 0 24 24" width="40" height="40" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="bounce-arrow">
+              <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+            </svg>
+          </div>
+
+          <div id="letter-section" class="letter-section-hidden">
+
+            <div class="envelope-wrapper" id="envelope">
+              <div class="envelope-back"></div>
+
+              <div class="letter">
+                <div class="letter-text">
+                  <h3>Liebe Tina,</h3>
+                  <p>
+                    ich liebe dich.
+                  </p>
+                </div>
+              </div>
+
+              <div class="envelope-pocket"></div>
+
+              <div class="envelope-flap"></div>
+            </div>
+
+            <p class="hint-text-small">(Tippe auf den Brief zum Öffnen)</p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script type="module" src="/src/main.ts"></script>

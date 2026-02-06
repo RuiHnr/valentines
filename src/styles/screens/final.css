@@ -1,0 +1,240 @@
+.final-card-fixed {
+  width: 500px;
+  max-width: 90vw;
+  min-height: 350px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+}
+
+#loading-container {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+
+.progress-wrapper {
+  width: 100%;
+  height: 40px;
+  background-color: #f8e7e7;
+  border-radius: 20px;
+  overflow: visible;
+  margin: 30px 0;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+  position: relative;
+}
+
+.progress-fill {
+  width: 0%; /* start at zero */
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 20px;
+
+  position: relative;
+  transition: width 0.5s cubic-bezier(0.25, 1, 0.5 ,1);
+  box-shadow: 0 2px 5px rgba(255, 71, 87, 0.3);
+}
+
+.progress-heart {
+  width: 64px;
+  height: 64px;
+  z-index: 10;
+
+  position: absolute;
+  right: -32px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  animation: heartbeat 1s infinite;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+}
+
+@keyframes heartbeat {
+  0% { transform: translateY(-50%) scale(1); }
+  50% { transform: translateY(-50%) scale(1.2); }
+  100% { transform: translateY(-50%) scale(1); }
+}
+
+#success-container {
+  width: 100%;
+  animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#loading-text {
+  font-size: 1.5rem;
+  margin: 0;
+  color: var(--primary-color);
+}
+
+/* Arrow Animation */
+#scroll-arrow {
+  margin-top: 30px;
+  cursor: pointer;
+  transition: opacity 0.5s;
+}
+
+.bounce-arrow {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+  40% {transform: translateY(-10px);}
+  60% {transform: translateY(-5px);}
+}
+
+/* LETTER */
+.letter-section-hidden {
+  opacity: 0;
+  margin-top: 50px;
+  transform: translateY(20px);
+  transition: all 1s ease;
+  pointer-events: none; /* none clickable while hidden */
+}
+
+.letter-section-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+  margin-bottom: 50px;
+}
+
+.hint-text-small {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-top: 20px;
+}
+
+/* ENVELOPE */
+.envelope-wrapper {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  margin: 0 auto;
+  background-color: #f7f7f7;
+  cursor: pointer;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.15);
+  border-radius: 5px;
+}
+
+.envelope-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(236, 191, 206);
+  border: 4px solid black;
+  border-radius: 5px;
+  z-index: 1;
+}
+
+.envelope-flap {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 0;
+  height: 0;
+
+  /* Triangle */
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-top: 115px solid rgb(245, 229, 232); /* color of envelope */
+
+  filter: drop-shadow(0 3px 0 black);
+
+  transform-origin: top;
+  transition: transform 0.6s ease 0.2s, z-index 0.2s;
+  z-index: 5;
+}
+
+.envelope-flap::after {
+  content: '♥️';
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: absolute;
+  bottom: -10px;
+  left: -20px;
+
+  width: 40px;
+  height: 40px;
+  background-color: #e49ec1;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+}
+
+.envelope-pocket {
+  position: absolute;
+  bottom: -5px;
+  left: 4px;
+  width: 0;
+  height: 0;
+  border-left: 150px solid transparent;
+  border-right: 150px solid transparent;
+  border-bottom: 120px solid rgb(245, 229, 232);
+  border-radius: 0 0 2px 2px;
+  z-index: 4;
+
+  filter: drop-shadow(0 -3px 0px black);
+}
+
+.letter {
+  position: absolute;
+  top: 10px;
+  left: 15px;
+  width: 270px;
+  height: 180px;
+  background: white;
+  padding: 25px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 3;
+
+  /* logic for closing letter */
+  transition: transform 0.3s ease 0s, z-index 0s linear 0.5s;
+}
+
+.letter-text {
+  font-family: 'Great Vibes', cursive;
+  color: #444;
+  font-size: 1.2rem;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.envelope-wrapper.open .letter {
+  transform: translateY(-100px) scale(1.5);
+  z-index: 10;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+  /* logic for opening letter */
+  transition:
+    transform 0.6s, cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s,
+    z-index 0s linear 0.6s;
+}
+
+/* ANIMATION CLASSES */
+.envelope-wrapper.open .envelope-flap {
+  transform: rotateX(180deg);
+  z-index: 1; /* behind letter paper */
+  transition: transform 0.6s ease 0s, z-index 0.2s;
+}
+

@@ -1,6 +1,7 @@
 import '../styles/screens/activity.css';
 import { ACTIVITIES, type ActivityCategory } from "../activities";
 import { showScreen } from "../utils/navigation";
+import { startFinalLoading } from './final';
 
 
 export function initActivityScreen() {
@@ -37,7 +38,7 @@ export function loadActivity(category: ActivityCategory) {
         }
 
         card.addEventListener('click', () => {
-            showScreen('final-screen');
+            startFinalLoading(option.text);
         });
 
         containerEl.appendChild(card);
