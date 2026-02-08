@@ -1,6 +1,6 @@
 .card {
   background: var(--card-bg);
-  padding: 3rem;
+  padding: 2rem;
   border-radius: 20px;
   box-shadow: var(--shadow);
   max-width: 400px;
@@ -31,4 +31,11 @@ button {
 .primary-btn:hover {
   transform: scale(1.05);
   background-color: var(--secondary-color);
+}
+
+.primary-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
 }

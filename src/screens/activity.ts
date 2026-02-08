@@ -38,7 +38,7 @@ export function loadActivity(category: ActivityCategory) {
         }
 
         card.addEventListener('click', () => {
-            startFinalLoading(option.text);
+            startFinalLoading(option.id);
         });
 
         containerEl.appendChild(card);

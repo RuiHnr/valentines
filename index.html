@@ -12,7 +12,7 @@
 
     <div id="intro-screen" class="screen">
       <div class="card">
-        <img src="resources/giving_flowers_1_1024.jpg" class="intro-img">
+        <img src="resources/giving_flowers_1_1024.jpg" class="primary-img">
         <h1>Will you be my Valentine?</h1>
         <div class="buttons">
           <button id="yes-btn" class="primary-btn">Yes</button>
@@ -53,7 +53,7 @@
 
           <div class="progress-wrapper">
             <div id="progress-bar" class="progress-fill">
-              <img src="./resources/hk-heart.svg" class="progress-heart" alt="♥️">
+              <img src="resources/hk-heart-pink.svg" class="progress-heart" alt="♥️">
             </div>
           </div>
 
@@ -62,35 +62,38 @@
 
         <div id="success-container" class="hidden">
           <h1>Fertig!</h1>
-          <p id="final-details">Alles ist fertig!</p>
+          <div id="slider-window">
+            <div id="slider-track">
 
-          <div id="scroll-arrow" class="hidden">
-            <p id="open-text">Eine Letzte Sache</p>
-            <svg viewBox="0 0 24 24" width="40" height="40" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="bounce-arrow">
-              <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
-            </svg>
-          </div>
+              <div id="slide-top" class="slide-section">
+                <img src="./resources/celebrate.jpg" class="primary-img">
+              </div>
 
-          <div id="letter-section" class="letter-section-hidden">
+              <div id="slide-bottom" class="slide-section">
+                <div id="letter-section" class="letter-section-visible">
 
-            <div class="envelope-wrapper" id="envelope">
-              <div class="envelope-back"></div>
+                  <div class="envelope-wrapper" id="envelope">
+                    <div class="envelope-back"></div>
 
-              <div class="letter">
-                <div class="letter-text">
-                  <h3>Liebe Tina,</h3>
-                  <p>
-                    ich liebe dich.
-                  </p>
+                    <div id="letter" class="letter hidden">
+                      <div id="letter-content" class="letter-content"></div>
+                    </div>
+
+                    <div class="envelope-pocket"></div>
+
+                    <div class="envelope-flap"></div>
+                  </div>
+
+                  <p class="hint-text-small">(Tippe auf den Brief zum Öffnen)</p>
                 </div>
               </div>
 
-              <div class="envelope-pocket"></div>
-
-              <div class="envelope-flap"></div>
             </div>
-
-            <p class="hint-text-small">(Tippe auf den Brief zum Öffnen)</p>
+          </div>
+          <div id="scroll-arrow" class="hidden">
+            <svg viewBox="0 0 24 24" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="bounce-arrow">
+              <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
+            </svg>
           </div>
         </div>
       </div>

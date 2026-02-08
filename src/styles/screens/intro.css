@@ -20,11 +20,3 @@
   font-size: 1.3rem;
   padding: 10px 20px;
 }
-
-.intro-img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}

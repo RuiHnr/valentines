@@ -17,10 +17,14 @@ body {
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   text-align: center;
   margin-bottom: 2rem;
   color: #ff4757;
+}
+
+p {
+  font-size: larger;
 }
 
 .hidden {
