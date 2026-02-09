@@ -2,9 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="./resources/mandarin.svg" />
+    <link rel="icon" type="image/svg+xml" href="./resources/hk-heart-pink.svg" />
     <meta name="valentines" content="width=device-width, initial-scale=1.0" />
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&family=Fredoka:wght@300;400;600&display=swap" rel="stylesheet">
     <title>valentines</title>
   </head>
   <body>
@@ -12,8 +12,10 @@
 
     <div id="intro-screen" class="screen">
       <div class="card">
-        <img src="resources/giving_flowers_1_1024.jpg" class="primary-img">
-        <h1>Will you be my Valentine?</h1>
+        <h1>Dear Tina,</h1>
+        
+        <h2>Will you be my Valentine?</h2>
+        <img src="resources/giving_flowers.jpg" class="primary-img">
         <div class="buttons">
           <button id="yes-btn" class="primary-btn">Yes</button>
           <button id="no-btn">No</button>
@@ -22,7 +24,7 @@
     </div>
 
     <div id="date-choice-screen" class="screen hidden">
-      <h1>Choose a date</h1>
+      <h1>Choose a date!</h1>
       <div class="choice-wrapper">
         <div class="card date-card" data-category="dinner">
           <img src="resources/chinese_restaurant.jpg" class="date-choice-img">
@@ -37,19 +39,17 @@
           <h2>Outdoor Date</h2>
         </div>
       </div>
-      <button id="back-to-intro-btn">Zurück</button>
     </div>
 
     <div id="activity-screen", class="screen hidden">
       <h1 id="activity-title">Loading...</h1>
       <div id="activity-options-container" class="activity-grid"></div>
-      <button id="back-to-date-btn">Zurück</button>
     </div>
 
     <div id="final-screen", class="screen hidden">
       <div class="card final-card-fixed">
         <div id="loading-container">
-          <h2 id="loading-text">Das Date wird vorbereitet...</h2>
+          <h1 id="loading-text">Loading...</h1>
 
           <div class="progress-wrapper">
             <div id="progress-bar" class="progress-fill">
@@ -61,7 +61,7 @@
         </div>
 
         <div id="success-container" class="hidden">
-          <h1>Fertig!</h1>
+          <h1>We're all set!</h1>
           <div id="slider-window">
             <div id="slider-track">
 
@@ -90,7 +90,7 @@
 
             </div>
           </div>
-          <div id="scroll-arrow" class="hidden">
+          <div id="scroll-arrow" class="bouncing hidden">
             <svg viewBox="0 0 24 24" stroke="var(--primary-color)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="bounce-arrow">
               <path d="M7 13l5 5 5-5M7 6l5 5 5-5"/>
             </svg>
@@ -98,6 +98,8 @@
         </div>
       </div>
     </div>
+
+    <button id="global-back-btn" class="global-back-btn primary-btn hidden">Back</button>
 
     <script type="module" src="/src/main.ts"></script>
   </body>

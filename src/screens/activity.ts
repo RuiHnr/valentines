@@ -5,9 +5,6 @@ import { startFinalLoading } from './final';
 
 
 export function initActivityScreen() {
-    document.getElementById('back-to-date-btn')?.addEventListener('click', () => {
-        showScreen('date-choice-screen');
-    });
 };
 
 export function loadActivity(category: ActivityCategory) {

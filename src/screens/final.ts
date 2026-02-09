@@ -1,16 +1,27 @@
 import '../styles/screens/final.css';
 import { showScreen } from '../utils/navigation';
 
-const wait = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 let closeTimeout: number | undefined;
+let loadingController: AbortController | null = null;
 
 let envelope: HTMLElement | null = null;
 let letter: HTMLElement | null = null;
-let letterContent: HTMLElement | null = null;
 let arrow: HTMLElement | null = null;
 let track: HTMLElement | null = null;
 let scrollWindow: HTMLElement | null = null;
 let slideTop: HTMLElement | null = null;
+
+const wait = (ms: number, signal: AbortSignal) => {
+    return new Promise((resolve, reject) => {
+        const timer = setTimeout(() => resolve(true), ms);
+
+        signal.addEventListener('abort', () => {
+            clearTimeout(timer);
+            reject(new DOMException('Aborted', 'AbortError'));
+        })
+    })
+};
 
 export function initFinal() {
     arrow = document.getElementById('scroll-arrow');
@@ -18,7 +29,6 @@ export function initFinal() {
     scrollWindow = document.getElementById('slider-window');
     slideTop = document.getElementById('slide-top')
     envelope = document.getElementById('envelope');
-    letterContent = document.getElementById('letter-content');
     letter = document.getElementById('letter');
 
     // logic for scrolling
@@ -30,6 +40,7 @@ export function initFinal() {
 
             track?.classList.toggle('scrolled');
             arrow?.classList.toggle('rotate-up');
+            arrow?.classList.toggle('bouncing');
         })
     }
 
@@ -40,6 +51,15 @@ export function initFinal() {
 }
 
 export function startFinalLoading(optionId: string) {
+    // kill old loading process if it's running
+    if (loadingController) {
+        loadingController.abort();
+    }
+
+    // create new controller
+    loadingController = new AbortController();
+    const signal = loadingController.signal;
+
     showScreen('final-screen');
 
     const bar = document.getElementById('progress-bar');
@@ -57,46 +77,48 @@ export function startFinalLoading(optionId: string) {
     successContainer.classList.add('hidden');
     arrow?.classList.add('hidden');
     bar.style.width = '0%';
-    text.textContent = "Das Date wird vorbereitet...";
+    text.textContent = "The date is being prepared...";
+    subtext.textContent = "Loading...";
+    envelope?.classList.remove('open');
+    letter?.classList.add('hidden');
 
     // loading sequence
     (async () => {
+        try {
+            // 1. start: fast to 10%
+            await wait(1300, signal);
+            bar.style.width = '10%';
+            text.textContent = 'Checking Calender...';
 
-        // 1. start: fast to 10%
-        await wait(900);
-        bar.style.width = '10%';
-        text.textContent = 'Checke Kalender...';
+            // 2. jump to 40%
+            await wait(1800, signal);
+            bar.style.width = '45%';
+            text.textContent = 'Checking cash...';
+            subtext.textContent = "sieht bissl knapp aus";
 
-        // 2. jump to 40%
-        await wait(1200);
-        bar.style.width = '45%';
-        text.textContent = 'Checke Geldbeutel...';
-        subtext.textContent = "sieht bissl knapp aus";
+            // 3. longer pause, then jump to 80%
+            await wait(2000, signal);
+            bar.style.width = '80%';
+            subtext.textContent = 'Almost done...';
 
-        // 3. longer pause, then jump to 80%
-        await wait(1400);
-        bar.style.width = '80%';
-        subtext.textContent = 'Fast fertig...';
+            // 4. the last bit
+            await wait(900, signal);
 
-        // 4. the last bit
-        await wait(1300);
+            bar.style.width = '100%';
+            text.textContent = "All set!";
 
-        bar.style.width = '100%';
-        text.textContent = 'Fertig!';
-
-        // short pause at 100%
-        await wait(500);
+            // short pause at 100%
+            await wait(900, signal);
 
 
-        // switch to success
-        loadContainer.classList.add('hidden');
-        successContainer.classList.remove('hidden');
+            // switch to success
+            loadContainer.classList.add('hidden');
+            successContainer.classList.remove('hidden');
 
-        if (arrow) {
-            arrow.classList.remove('hidden');
-        }
-
-        // load letter text
+            if (arrow) {
+                arrow.classList.remove('hidden');
+            }
+        } catch {}
     })();
 }
 
@@ -119,66 +141,67 @@ function toggleEnvelope() {
 }
 
 function loadLetter(optionId: string) {
-    let location;
+    let location: string = '';
+    let was: string = '';
     switch (optionId) {
         case 'chinese':
-            location = "Chinese restaurant";
+            location = "Tbd";
+            was = 'chinesisch essen';
             break;
 
         case 'korean':
-            location = "Korean restaurant";
+            location = "Tbd";
+            was = "koreanisch essen";
             break;
 
         case 'home':
-            location = "Bei mir zuhause";
+            location = "bei mir zuhause";
+            was = "dinner at home";
             break;
 
         case 'indonesian':
-            location = "Indonesian Restaurant";
+            location = "Diva Minang, Ismaninger Str. 17, München";
+            was = "Indonesisch essen";
             break;
 
         case 'surprise-food':
             location = "Surprise";
+            was = "dinner";
             break;
 
         case 'alice':
-            location = "Bei mir zuhause";
-            break;
-
         case 'qyfddf':
-            location = "Bei mir zuhause";
-            break;
-
         case 'maomao':
-            location = "Bei mir zuhause";
-            break;
-
         case 'horror-movie':
-            location = "Bei mir zuhause";
-            break;
-
         case 'surprise-movie':
-            location = "Surprise";
+            location = "Bei mir zuhause";
+            was = "Movie night";
             break;
 
         case 'convenience-store':
-            location = "Store";
+            location = "Super K Convenience Store";
+            was = "Essen + Shopping";
             break;
 
         case 'iceskating':
-            location = "Park";
+            location = "Prinzregentenstadion";
+            was = "Eislaufen";
             break;
 
         case 'shopping':
-            location = "Unqilo";
+            location = "In der Stadt";
+            "Shopping"
             break;
 
         case 'museum':
-            location = "Museum";
+            location = "Haus der Kunst, Prinzregentenstraße 1";
+            was = "Museum";
             break;
 
         case 'surprise-outdoor':
             location = "Surprise";
+            was = "Surprise";
+            break;
     }
 
     const letterContent = document.getElementById('letter-content');
@@ -189,20 +212,20 @@ function loadLetter(optionId: string) {
         <div class="letter-header">Date Einladung</div>
 
         <div class="invite-grid">
-            <span class="invite-label">An:</span>
-            <span class="invite-value">Cutest person in the world</span>
+            <span class="invite-label">Was?</span>
+            <span class="invite-value">${was}</span>
 
-            <span class="invite-label">Wo:</span>
+            <span class="invite-label">Wo?</span>
             <span class="invite-value">${location}</span>
     
-            <span class="invite-label">Wann:</span>
+            <span class="invite-label">Wann?</span>
             <span class="invite-value">Samstag, 14.02</span>
 
-            <span class="invite-label">Mit:</span>
-            <span class="invite-value">Mir</span>
+            <span class="invite-label">Mit?</span>
+            <span class="invite-value">mir :)</span>
         </div>
             <div class="letter-footer">
-                Love you, Ruirui
+                Love you, Ruirui♥️
             </div>
     `;
     letterContent.classList.remove('hidden');

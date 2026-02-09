@@ -38,7 +38,7 @@ hintToggle.addEventListener('click', () => {
     const hintIndex = Math.min(Math.max(0, failCounter - 2), HINTS.length - 1);
 
     const isHidden = hintText.classList.toggle('hidden');
-    toggle.innerHTML = isHidden ? HINTS[hintIndex].label : "Hide";
+    hintToggle.innerHTML = isHidden ? HINTS[hintIndex].label : "Hide";
 
 });
 
@@ -55,19 +55,24 @@ function attemptDecrypt() {
         const decryptedBytes = CryptoJS.AES.decrypt(encryptedData, password);
         const decryptedString = decryptedBytes.toString(CryptoJS.enc.Utf8);
 
-        if (!decryptedString) throw new Error("Wrong Password");
+        if (!decryptedString || !decryptedString.trim().startsWith('<'))
+            throw new Error("Wrong Password");
 
         // success
+        console.log('Success! Unlocking page.');
+        console.log("Decrypted String:", decryptedString.substring(0, 500));
         document.open();
         document.write(decryptedString);
         document.close();
 
     } catch (e) {
+        console.log(e);
         handleFailure();
     }
 }
 
 function handleFailure() {
+    errorMsg.classList.remove('hidden');
     errorMsg.style.display = 'block';
     console.log("Decryption failed");
 
